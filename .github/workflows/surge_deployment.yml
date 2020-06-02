@@ -20,12 +20,12 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    # Runs a single command using the runners shell
-    - name: Install Node.js
+    
+    - name: Install NodeJS
       uses: actions/setup-node@v2-beta
       with:
-          node-version: 12
+        node-version: 12
+    
     - uses: borales/actions-yarn@v2.0.0
       with:
         cmd: install # will run `yarn install` command
@@ -36,8 +36,8 @@ jobs:
     - name: Install Surge
       run: npm install --global surge
 
-    - name: Run surge
-      run: surge ./build bootcamp_reactApp.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+    - name: Deploy to Surge
+      run: surge ./build BC2020_react_amad_Durrani.surge.sh --token ${{ secrets.SURGE_TOKEN }}
   
 
 
